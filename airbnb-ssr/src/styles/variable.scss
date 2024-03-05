@@ -1,0 +1,7 @@
+// 定义全局 CSS 变量
+
+@mixin line-text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
