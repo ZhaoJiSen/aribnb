@@ -1,0 +1,31 @@
+@import "@/styles/variable.scss";
+
+.footer-common {
+  border-top: 1px solid #999;
+  font-size: 14px;
+
+  .inner-footer {
+    @include max-wrapper;
+
+    ul {
+      @include flex-layout(row, space-between, flex-start);
+
+      li {
+        @include flex-layout(column, space-between, flex-start);
+
+        a {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .copy-right {
+      padding: 30px 30px;
+      text-align: center;
+      color: #999;
+
+      border-top: 1px solid #999;
+      @include max-wrapper;
+    }
+  }
+}

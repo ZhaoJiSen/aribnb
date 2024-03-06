@@ -25,7 +25,7 @@ class Request {
     );
   }
 
-  private requestInterceptorsResponse() {
+  private requestInterceptorsResponse() { 
     Request.request.interceptors.response.use(
       (res: AxiosResponse) => {
         return res;
