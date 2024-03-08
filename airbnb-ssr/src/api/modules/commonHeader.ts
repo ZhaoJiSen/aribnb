@@ -10,7 +10,7 @@ interface IResult {
 const airbnb = new DB("airbnb");
 
 // 设置语言包
-export const saveLanguage = async (lang: any) => {
+export const saveLanguage = async (lang: string) => {
   await airbnb.openStore("language", "id", ["name"]);
 
   const operator: IResult = await airbnb

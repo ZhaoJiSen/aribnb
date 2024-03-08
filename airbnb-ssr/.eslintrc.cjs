@@ -4,24 +4,24 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['standard-with-typescript', 'plugin:vue/vue3-essential'],
+  extends: ["standard-with-typescript", "plugin:vue/vue3-essential"],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: ['.eslintrc.{js,cjs}'],
+      files: [".eslintrc.{js,cjs}"],
       parserOptions: {
-        sourceType: 'script',
+        sourceType: "script",
       },
     },
   ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
   },
-  plugins: ['vue'],
-  rules: {
-    'space-before-function-paren': 0,
-  },
+  plugins: ["vue"],
+  rules: {},
 };
