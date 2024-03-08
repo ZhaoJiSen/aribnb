@@ -1,0 +1,82 @@
+@import "@/styles/variable.scss";
+$orange: rgba(255, 81, 0, 0.842);
+
+.login-page {
+  height: 100vh;
+  @include flex-layout(row);
+
+  .left-part {
+    flex: 30;
+    height: 100%;
+    background-image: url("../../assets/images/bg.png");
+    background-repeat: no-repeat;
+    background-position: 60% center;
+    background-size: cover;
+  }
+
+  .right-part {
+    flex: 20;
+    @include flex-layout(row, center, center);
+
+    .login-panel {
+      width: 300px;
+
+      ::v-deep .el-tabs__header {
+        margin-bottom: 45px;
+
+        .el-tabs__nav-wrap::after {
+          display: none;
+        }
+
+        .el-tabs__nav-scroll {
+          width: 100%;
+          margin: 0 auto !important;
+
+          .el-tabs__nav {
+            float: initial;
+            text-align: center;
+
+            .el-tabs__item {
+              font-size: 24px;
+              color: #999;
+
+              &.is-active {
+                color: $orange;
+              }
+            }
+
+            .el-tabs__active-bar {
+              background-color: $orange;
+            }
+          }
+        }
+      }
+
+      ::v-deep .el-input__inner {
+        height: 44px;
+        line-height: 42px;
+        background: #f6f6f8;
+        border-radius: 40px;
+        border: none !important;
+        padding-left: 15px;
+        outline: none;
+      }
+
+      .login-btn {
+        &.el-button {
+          display: block;
+          padding: 0;
+          margin-top: 45px;
+          width: 100%;
+          border: none;
+          line-height: 40px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: $orange;
+          color: #fff;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

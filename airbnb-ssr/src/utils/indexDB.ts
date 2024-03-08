@@ -19,7 +19,7 @@ export default class DB {
     return new Promise((resolve, reject) => {
       // 数据库打开成功的回调
       request.onsuccess = (e: any) => {
-        console.log("数据库打开成功");
+        // console.log("数据库打开成功");
         this.db = e.target.result;
 
         // 需要额外的产出一个 true 使得后续代码可以继续执行
@@ -28,7 +28,7 @@ export default class DB {
 
       // 数据库打开失败的回调
       request.onerror = (e) => {
-        console.log("打开数据库失败");
+        // console.log("打开数据库失败");
         reject(e);
       };
 
@@ -59,7 +59,7 @@ export default class DB {
         }
 
         store.transaction.oncomplete = () => {
-          console.log("仓库创建成功");
+          // console.log("仓库创建成功");
         };
       };
     });
@@ -83,12 +83,12 @@ export default class DB {
 
     return new Promise((resolve, reject) => {
       request.onsuccess = () => {
-        console.log("数据写入/修改成功");
+        // console.log("数据写入/修改成功");
         resolve(true);
       };
 
       request.onerror = (e: any) => {
-        console.log("数据写入/修改失败");
+        // console.log("数据写入/修改失败");
         reject(e);
       };
     });
@@ -104,12 +104,12 @@ export default class DB {
 
     return new Promise((resolve, reject) => {
       request.onsuccess = (e: any) => {
-        console.log("数据删除成功");
+        // console.log("数据删除成功");
         resolve(e);
       };
 
       request.onerror = (e: any) => {
-        console.log("数据删除失败");
+        // console.log("数据删除失败");
         reject(e);
       };
     });
@@ -123,12 +123,12 @@ export default class DB {
 
     return new Promise((resolve, reject) => {
       result.onsuccess = (e: any) => {
-        console.log("查询全部数据成功");
+        // console.log("查询全部数据成功");
         resolve(e.target.result);
       };
 
       result.onerror = (e: any) => {
-        console.log("查询全部数据失败");
+        // console.log("查询全部数据失败");
         reject(e);
       };
     });
@@ -141,12 +141,12 @@ export default class DB {
 
     return new Promise((resolve, reject) => {
       result.onsuccess = (e: any) => {
-        console.log("查询单条数据成功");
+        // console.log("查询单条数据成功");
         resolve(e.target.result);
       };
 
       result.onerror = (e: any) => {
-        console.log("查询单条数据失败");
+        // console.log("查询单条数据失败");
         reject(e);
       };
     });

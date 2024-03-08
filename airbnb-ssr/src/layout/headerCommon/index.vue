@@ -19,22 +19,28 @@
           <el-avatar :src="avatarImg" />
         </el-tooltip>
       </el-menu-item>
+      <el-menu-item index="login">
+        {{ t("login.loginTab") }} / {{ t("login.signTab") }}
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
 import { saveLanguage, getLanguage } from "@/api/modules/commonHeader.ts";
 
 import en from "element-plus/dist/locale/en.mjs";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
-import avatarImg from "@/assets/images/avatar.jpg";
+
 import logoImg from "@/assets/images/logo.png";
+import avatarImg from "@/assets/images/avatar.jpg";
 
 const { t } = useI18n();
+const router = useRouter();
 
 const emit = defineEmits<{ (e: "changeLanguage", type: any): void }>();
 
@@ -45,19 +51,22 @@ onMounted(() => {
 });
 
 const handleSelect = (key: string) => {
-  emit("changeLanguage", key);
-  handleLang(key);
+  console.log(key);
+  if (key === "en" || key === "zh-cn") {
+    emit("changeLanguage", key);
+  }
 };
 
-const handleLang = (lang: any) => {
-  saveLanguage(lang).then((res) => {
-    const { success } = res;
+// const handleLang = (lang: any) => {
+//   saveLanguage(lang).then((res) => {
+//     const { success } = res;
 
-    if (success) {
-      console.log("保存成功");
-    }
-  });
-};
+//     if (success) {
+//       console.log("保存成功");
+//       emit("changeLanguage", lang);
+//     }
+//   });
+// };
 
 const getLang = () => {
   getLanguage().then((res) => {
