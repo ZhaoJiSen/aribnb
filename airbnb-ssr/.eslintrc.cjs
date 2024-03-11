@@ -23,5 +23,10 @@ module.exports = {
     project: "./tsconfig.json",
   },
   plugins: ["vue"],
-  rules: {},
+  rules: {
+    quotes: off,
+    "@typescript-eslint/quotes": off,
+    semi: "off",
+    "@typescript-eslint/semi": off,
+  },
 };
